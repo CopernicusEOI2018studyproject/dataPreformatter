@@ -6,7 +6,7 @@
 
 	<groupId>org.notgroupb</groupId>
 	<artifactId>dataFormatter</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>DataFormatter</name>
@@ -14,7 +14,7 @@
 	<organization>
 		<name>not-group-b</name>
 	</organization>
-	
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -56,6 +56,11 @@
 			<artifactId>cts</artifactId>
 			<version>1.5.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.notgroupb</groupId>
+			<artifactId>dataFormats</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -63,6 +68,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<classifier>exec</classifier>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
