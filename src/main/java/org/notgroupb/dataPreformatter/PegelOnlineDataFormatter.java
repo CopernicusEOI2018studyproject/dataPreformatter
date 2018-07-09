@@ -65,7 +65,7 @@ public class PegelOnlineDataFormatter {
 						}
 				);
 
-		formattedStream.to("PegelOnlineData",
+		formattedStream.to("PegelOnlineDataRaw",
 				Produced.with(
 						Serdes.String(),
 						Serdes.serdeFrom(new DataPointSerializer<PegelOnlineDataPoint>(), new PegelOnlineDataPointDeserializer()))
