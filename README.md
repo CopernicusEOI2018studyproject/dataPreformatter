@@ -7,22 +7,7 @@ Formatting Worker to Format Data from different Data Portals into POJOs. It drop
 Architecture Overview:
  - Rectangle: Kafka Topic
  - Rhombus+Annotation: Operation
- ```mermaid
-graph TD
-A[HygonWLRaw] --Rekey to use name as key--> C
-B[HygonStationsWLRaw] --Rekey to use name as key--> D
-C[PreformattedHygonData] --> L
-D[PreformattedHygonStations] --> L
-F[HygonDataRaw] --Deduplicate--> G
-G[HygonData]
-L{join} --to Java Object--> F
-
-AA[PegelOnlineDataSource] --> LL
-BB[PegelOnlineStations] --> LL
-FF[PegelOnlineDataRaw] --Deduplicate--> GG
-LL{join} --to Java Object--> FF
-GG[PegelOnlineData]
-```
+![Architecture Overview](https://user-images.githubusercontent.com/13851077/42758213-0f1be4c0-8903-11e8-826d-c80be2a00625.png)
 
 The Output Queues have the following Schema:
  - HygonData
