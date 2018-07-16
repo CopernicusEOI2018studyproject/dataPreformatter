@@ -69,6 +69,12 @@ public class PegelOnlineDataFormatter {
 						String recordTimeString = element.getString("timestamp");
 						DateTimeFormatter format = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 						LocalDateTime recordTime = LocalDateTime.parse(recordTimeString, format);
+						
+						// Return invalid record (to be filtered out later) if Record is older than 8 hours
+						// As it has no effect on output
+						if (recordTime.isBefore(LocalDateTime.now().minusHours(8))) {
+							return new PegelOnlineDataPoint();
+						}
 						station.setRecordTime(recordTime);
 						
 						// Extract and set measurement
